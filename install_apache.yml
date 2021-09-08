@@ -1,8 +1,6 @@
-- hosts: localhost
-  connection: local
-  become: yes
-  tasks:
-  - name: Install apache packages
-    yum: pkg=httpd state=latest
-  - name: ensure httpd is running
-    service: name=httpd state=started
+  ---
+  - hosts: apache
+    sudo: yes
+    tasks:
+      - name: install apache2
+        apt: name=apache2 update_cache=yes state=latest
