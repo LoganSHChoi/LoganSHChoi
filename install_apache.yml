@@ -1,8 +1,8 @@
-  ---
-- hosts: localhost
-  connection: local
-  become: yes
-  sudo: yes
+---
+- name: play to setup web server
+  hosts: localhost
   tasks:
-   - name: install apache2
-     yum: name=apache2 update_cache=yes state=latest
+  - name: latest httpd version installed
+    yum:
+      name: httpd
+      state: latest
