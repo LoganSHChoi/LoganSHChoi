@@ -1,6 +1,8 @@
   ---
-  - hosts: localhost
-    sudo: yes
-    tasks:
-      - name: install apache2
-        apt: name=apache2 update_cache=yes state=latest
+- hosts: localhost
+  connection: local
+  become: yes
+  sudo: yes
+  tasks:
+   - name: install apache2
+     yum: name=apache2 update_cache=yes state=latest
