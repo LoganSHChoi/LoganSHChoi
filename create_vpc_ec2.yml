@@ -36,7 +36,10 @@
         region: ap-northeast-1
         state: present
         subnets: ["{{ subnet_result.subnet.id }}"]
-
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ igw.gateway_id }}"
+        
     - name: Create Security Group
       ec2_group:
         name: default sg
